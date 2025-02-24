@@ -159,8 +159,7 @@ plt.show()
 
 
 **Penjelasan:**
-- Menggunakan **inertia** untuk menentukan nilai **K** optimal.
-- Memplot nilai **K** terhadap nilai **distorsi** untuk menemukan **titik siku**.
+    Berasarkan **Grafik** yang ditunjukan ternyata lekukan terjadi pada Cluster ke-4.
 
 ### 5. Menggunakan K-Means untuk Segmentasi Gambar
 ```python
