@@ -45,7 +45,7 @@ Proyek ini bertujuan untuk mengembangkan metode segmentasi dan analisis warna bi
 
 ## Diagram Alir Proses
 <p align="center">
-  <img src="images/diagram.png" alt="diagram" width="500">
+  <img src="images/diagram.png" alt="diagram" width="170">
 </p>
 
 ## Implementasi Kode dalam Python
