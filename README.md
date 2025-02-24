@@ -44,7 +44,65 @@ Proyek ini bertujuan untuk mengembangkan metode segmentasi dan analisis warna bi
 - **Menyediakan aplikasi berbasis web menggunakan Streamlit untuk mempermudah pengguna dalam melakukan analisis warna biota laut secara interaktif.**
 
 ## Diagram Alir Proses
-![diagram](images/diagram.png)
+
+```plaintext
++---------------------------------+
+|             Mulai              |
++---------------------------------+
+              |
+              v
++---------------------------------+
+|   Ambil gambar biota laut      |
++---------------------------------+
+              |
+              v
++---------------------------------+
+|   Preprocessing gambar:        |
+|   - Konversi ke RGB            |
+|   - Normalisasi pixel          |
+|   - Reshape data               |
++---------------------------------+
+              |
+              v
++---------------------------------+
+|   Analisis jumlah cluster:     |
+|   - Jalankan Elbow Method      |
+|   - Tentukan nilai K optimal   |
++---------------------------------+
+              |
+              v
++---------------------------------+
+|   Segmentasi gambar:           |
+|   - Jalankan K-Means           |
+|   - Rekonstruksi gambar        |
++---------------------------------+
+              |
+              v
++---------------------------------+
+|   Visualisasi hasil:           |
+|   - Tampilkan gambar hasil     |
+|   - Buat Pie Chart warna       |
++---------------------------------+
+              |
+              v
++---------------------------------+
+|            Selesai             |
++---------------------------------+
+```
+
+## Rekayasa Algoritma (Pseudocode)
+
+1. Load dataset gambar biota laut.
+2. Konversi gambar ke format RGB.
+3. Normalisasi pixel dan ubah menjadi array.
+4. Tentukan jumlah optimal **K** menggunakan **Elbow Method**.
+5. Terapkan K-Means Clustering:
+   - Gunakan K yang telah ditentukan.
+   - Lakukan clustering pada pixel gambar.
+6. Rekonstruksi gambar berdasarkan warna dominan dalam cluster.
+7. Tampilkan hasil segmentasi gambar dan distribusi warna dalam Pie Chart.
+8. **Membuat aplikasi berbasis web menggunakan Streamlit untuk mempermudah pengguna dalam melakukan analisis warna biota laut.**
+
 ## Implementasi Kode dalam Python
 
 ```python
