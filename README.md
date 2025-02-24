@@ -1,5 +1,5 @@
 # Amarine Finall Test 
-Nama : Christama Ezra Yudianto
+Nama : Christama Ezra Yudianto <br>
 Nim : 245150307111009
 
 ## Milestone Riset Pendeteksian Objek Gambar Biota Laut
@@ -44,7 +44,7 @@ Proyek ini bertujuan untuk mengembangkan metode segmentasi dan analisis warna bi
 - **Menyediakan aplikasi berbasis web menggunakan Streamlit untuk mempermudah pengguna dalam melakukan analisis warna biota laut secara interaktif.**
 
 ## Diagram Alir Proses
-![diagram](https://raw.githubusercontent.com/username/repository-name/main/images/diagram.png)
+![diagram](images/diagram.png)
 
 
 
