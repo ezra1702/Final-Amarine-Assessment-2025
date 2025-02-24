@@ -158,7 +158,7 @@ plt.show()
 ![ElbowImage](images/elbow.png)
 
 
-**Penjelasan:**
+**Penjelasan:** <br>
     Berasarkan **Grafik** yang ditunjukan ternyata lekukan terjadi pada Cluster ke-4.
 
 ### 5. Menggunakan K-Means untuk Segmentasi Gambar
