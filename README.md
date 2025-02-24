@@ -45,23 +45,6 @@ Proyek ini bertujuan untuk mengembangkan metode segmentasi dan analisis warna bi
 
 ## Diagram Alir Proses
 ![diagram](images/diagram.png)
-
-
-
-
-## Rekayasa Algoritma (Pseudocode)
-
-1. Load dataset gambar biota laut.
-2. Konversi gambar ke format RGB.
-3. Normalisasi pixel dan ubah menjadi array.
-4. Tentukan jumlah optimal **K** menggunakan **Elbow Method**.
-5. Terapkan K-Means Clustering:
-   - Gunakan K yang telah ditentukan.
-   - Lakukan clustering pada pixel gambar.
-6. Rekonstruksi gambar berdasarkan warna dominan dalam cluster.
-7. Tampilkan hasil segmentasi gambar dan distribusi warna dalam Pie Chart.
-8. **Membuat aplikasi berbasis web menggunakan Streamlit untuk mempermudah pengguna dalam melakukan analisis warna biota laut.**
-
 ## Implementasi Kode dalam Python
 
 ```python
