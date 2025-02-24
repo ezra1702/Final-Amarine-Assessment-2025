@@ -298,6 +298,94 @@ if __name__ == "__main__":
 **Ouput:** <br>
 ![deploy](images/deploy.png)
 
+### 7.Execution Time serta Kesan Pesan
+```python
+def get_device_info():
+    return {
+        "OS": platform.system(),
+        "OS Version": platform.version(),
+        "Processor": platform.processor(),
+        "RAM": f"{round(psutil.virtual_memory().total / (1024**3), 2)} GB"
+    }
+
+def elbow_method(image_path, max_k=10):
+    start_time = time.time()
+    image = cv2.imread(image_path)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    pixels = image.reshape(-1, 3)
+    inertia = []
+    k_values = range(1, max_k + 1)
+
+    for k in k_values:
+        kmeans = KMeans(n_clusters=k, n_init=10, random_state=42)
+        kmeans.fit(pixels)
+        inertia.append(kmeans.inertia_)
+
+    exec_time = round(time.time() - start_time, 2)
+
+
+    print("\n--- Informasi Eksekusi ---")
+    print(f"Resolusi Gambar: {image.shape[1]}x{image.shape[0]} px")
+    print(f"Bentuk gambar setelah diratakan: {pixels.shape}")
+    print(f"Waktu Eksekusi Elbow Method: {exec_time} detik")
+
+def kmeans_clustering(image_path, k=4):
+    start_time = time.time()
+    image = cv2.imread(image_path)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    pixels = image.reshape(-1, 3)
+    kmeans = KMeans(n_clusters=k, n_init=10, random_state=42)
+    labels = kmeans.fit_predict(pixels)
+    recolored_pixels = kmeans.cluster_centers_[labels].reshape(image.shape).astype(int)
+    exec_time = round(time.time() - start_time, 2)
+
+
+    print("\n--- Informasi Eksekusi ---")
+    print(f"Resolusi Gambar: {image.shape[1]}x{image.shape[0]} px")
+    print(f"Bentuk gambar setelah diratakan: {pixels.shape}")
+    print(f"Bentuk gambar hasil clustering: {recolored_pixels.shape}")
+    print(f"Waktu Eksekusi K-Means: {exec_time} detik")
+
+image_path = "images/aethaloperca_rogaa_11.jpg"
+elbow_method(image_path, max_k=10)
+kmeans_clustering(image_path, k=4)
+
+device_info = get_device_info()
+print("\n--- Informasi Perangkat ---")
+for key, value in device_info.items():
+    print(f"{key}: {value}")
+```
+**Ouput:** <br>
+```plaintext
+--- Informasi Eksekusi ---
+Resolusi Gambar: 650x432 px
+Bentuk gambar setelah diratakan: (280800, 3)
+Waktu Eksekusi Elbow Method: 17.56 detik
+
+--- Informasi Eksekusi ---
+Resolusi Gambar: 650x432 px
+Bentuk gambar setelah diratakan: (280800, 3)
+Bentuk gambar hasil clustering: (432, 650, 3)
+Waktu Eksekusi K-Means: 1.08 detik
+
+--- Informasi Perangkat ---
+OS: Windows
+OS Version: 10.0.22631
+Processor: Intel64 Family 6 Model 165 Stepping 2, GenuineIntel
+RAM: 31.78 GB
+```
+**Kesan & Pesan:** <br>
+``plain text
+**Suka:**
+- Proyek ini memberikan pengalaman menarik dalam eksplorasi pemrosesan citra dan analisis warna menggunakan K-Means clustering.
+- Visualisasi hasil segmentasi memberikan kepuasan tersendiri karena dapat melihat bagaimana gambar diubah menjadi representasi warna yang lebih sederhana.
+- Proses eksplorasi dan tuning parameter memberikan kesempatan untuk memahami lebih dalam cara kerja algoritma dan dampaknya terhadap hasil akhir.
+**Duka:**
+- Menghadapi tantangan dalam menangani gambar berukuran besar yang memerlukan optimasi memori dan waktu komputasi.
+- Menyesuaikan jumlah cluster agar menghasilkan segmentasi warna yang optimal tanpa kehilangan detail penting.
+- Waktu pengumpulan yang cepat membuat proses eksplorasi dan penyempurnaan model menjadi terbatas.
+
+```
 
 
 ## SDLC Model: Agile
@@ -308,8 +396,10 @@ if __name__ == "__main__":
 - **Sprint 4**: Dokumentasi, evaluasi, publikasi proyek di GitHub, serta penyusunan laporan riset.
 - **Sprint 5**: Pengembangan aplikasi berbasis web dengan Streamlit dan deployment ke platform Streamlit Cloud.
 
-## Tautan GitHub Proyek
-[Masukkan tautan GitHub proyek di sini]
+## Tautan GitHub Proyek & Kesan Pesan
+Classsification : ![classification](notebook.ipynb) <br>
+Deploy Progaram : ![classification](streamlit.py)
+
 
 ## Deployment Streamlit
 Aplikasi ini dapat digunakan secara langsung melalui platform **Streamlit Cloud**. [Masukkan tautan Streamlit di sini]
