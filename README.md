@@ -48,53 +48,49 @@ Proyek ini bertujuan untuk mengembangkan metode segmentasi dan analisis warna bi
   <img src="images/diagram.png" alt="diagram" width="170">
 </p>
 
-## Implementasi Kode dalam Python
+## Implementasi Kode dalam Python 
 
-```python
+```
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-import streamlit as st
+import time
+import platform
+import psutil
 from sklearn.cluster import KMeans
-
-def elbow_method(image_path, max_k=10):
-    # Membaca gambar dan mengubah ke format RGB
-    image = cv2.imread(image_path)
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    
-    # Ubah gambar menjadi kumpulan piksel
-    pixels = image.reshape(-1, 3)
-    
-    # Hitung inertia untuk berbagai nilai K
-    inertia = []
-    k_values = range(1, max_k + 1)
-    for k in k_values:
-        kmeans = KMeans(n_clusters=k, n_init=10, random_state=42)
-        kmeans.fit(pixels)
-        inertia.append(kmeans.inertia_)
-    
-    # Tampilkan grafik Elbow Method
-    plt.figure(figsize=(8, 5))
-    plt.plot(k_values, inertia, marker='o', linestyle='-')
-    plt.xlabel('Jumlah Cluster (K)')
-    plt.ylabel('Inertia (SSE)')
-    plt.title('Elbow Method untuk Menentukan K Optimal')
-    plt.xticks(k_values)
-    plt.grid()
-    plt.show()
-
-def run_streamlit():
-    st.title("Pendeteksian Warna Biota Laut")
-    uploaded_file = st.file_uploader("Upload gambar biota laut", type=["jpg", "png", "jpeg"])
-    if uploaded_file is not None:
-        st.image(uploaded_file, caption='Gambar Asli', use_column_width=True)
-        st.write("Sedang menganalisis warna...")
-        elbow_method(uploaded_file, max_k=10)
-        st.write("Analisis selesai.")
-
-if __name__ == "__main__":
-    run_streamlit()
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+from sklearn.datasets import make_blobs
 ```
+### Penjelasan Kode
+Penjelasan Kode
+Kode ini merupakan implementasi K-Means Clustering untuk segmentasi warna dalam gambar. Berikut adalah penjelasan dari setiap pustaka yang diimpor:
+
+cv2 (OpenCV)
+
+Digunakan untuk membaca dan memproses gambar, termasuk konversi warna dan manipulasi pixel.
+numpy
+
+Digunakan untuk manipulasi array dan operasi numerik, seperti mengubah gambar menjadi array pixel.
+matplotlib.pyplot
+
+Digunakan untuk menampilkan hasil visualisasi seperti gambar hasil segmentasi dan grafik Elbow Method.
+time
+
+Digunakan untuk mengukur waktu eksekusi program, yang berguna untuk optimasi performa algoritma.
+platform
+
+Digunakan untuk mendapatkan informasi tentang sistem operasi yang sedang digunakan.
+psutil
+
+Digunakan untuk memonitor penggunaan sumber daya sistem seperti CPU dan memori saat program berjalan.
+sklearn.cluster.KMeans
+
+Digunakan untuk mengimplementasikan algoritma K-Means Clustering dalam segmentasi warna.
+sklearn.datasets.make_blobs
+
+Digunakan untuk membuat dataset contoh dengan titik-titik data yang dikelompokkan ke dalam beberapa cluster (berguna untuk pengujian K-Means).
 
 ## SDLC Model: Agile
 
