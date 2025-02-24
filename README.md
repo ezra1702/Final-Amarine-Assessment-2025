@@ -90,7 +90,7 @@ print(f"{channels} = jumlah kanal warna (RGB)")
 print(f"Bentuk Akhir (2D) → {pixels.shape}")
 
 ```
-**Penjelasan:**
+**Outptu:**
 ```plaintext
 Bentuk Awal (3D) → (432, 650, 3)
 432 = tinggi gambar
@@ -99,9 +99,15 @@ Bentuk Awal (3D) → (432, 650, 3)
 Bentuk Akhir (2D) → (280800, 3)
 ```
 **Penjelasan:**
-- Membaca gambar menggunakan `cv2.imread()`.
-- Mengubah format warna dari BGR ke RGB.
-- Menampilkan gambar menggunakan `plt.imshow()`.
+1. Bentuk Awal (3D) → (432, 650, 3)
+ - Gambar awal memiliki tinggi = 432 piksel
+ - Gambar memiliki lebar = 650 piksel
+ - Gambar memiliki 3 kanal warna (RGB), di mana setiap piksel 
+ - memiliki tiga nilai untuk warna Merah (R), Hijau (G), dan Biru= (B)
+2.  Bentuk Akhir (2D) → (280800, 3)
+ - Setelah gambar diratakan (flattened), bentuknya berubah dari (432, 650, 3) menjadi (280800, 3).
+ - 280800 berasal dari 432 × 650, yaitu jumlah total piksel dalam gambar.
+ - Setiap piksel tetap memiliki 3 nilai warna (RGB) sehingga bentuk akhirnya menjadi (jumlah piksel, 3).
 
 ### 3. Mengonversi Gambar ke Format Data untuk K-Means
 ```python
