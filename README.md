@@ -376,11 +376,12 @@ RAM: 31.78 GB
 ```
 **Kesan & Pesan:** <br>
 ```plain text
-**Suka:**
+Suka:
 - Proyek ini memberikan pengalaman menarik dalam eksplorasi pemrosesan citra dan analisis warna menggunakan K-Means clustering.
 - Visualisasi hasil segmentasi memberikan kepuasan tersendiri karena dapat melihat bagaimana gambar diubah menjadi representasi warna yang lebih sederhana.
 - Proses eksplorasi dan tuning parameter memberikan kesempatan untuk memahami lebih dalam cara kerja algoritma dan dampaknya terhadap hasil akhir.
-**Duka:**
+
+Duka:
 - Menghadapi tantangan dalam menangani gambar berukuran besar yang memerlukan optimasi memori dan waktu komputasi.
 - Menyesuaikan jumlah cluster agar menghasilkan segmentasi warna yang optimal tanpa kehilangan detail penting.
 - Waktu pengumpulan yang cepat membuat proses eksplorasi dan penyempurnaan model menjadi terbatas.
@@ -397,6 +398,7 @@ RAM: 31.78 GB
 - **Sprint 5**: Pengembangan aplikasi berbasis web dengan Streamlit dan deployment ke platform Streamlit Cloud.
 
 ## Tautan GitHub Proyek & Kesan Pesan
-Classsification : ![classification](notebook.ipynb) <br>
-Deploy Progaram : ![classification](streamlit.py)
+Classsification : [classification](notebook.ipynb) <br>
+Deploy Progaram : [classification](streamlit.py)
+Link Github : [full-link](https://github.com/ezra1702/Final-Amarine-Assessment-2025?tab=readme-ov-file)
 
