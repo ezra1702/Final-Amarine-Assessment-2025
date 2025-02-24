@@ -30,8 +30,7 @@ Metode SDLC: Waterfall
 
 - Menguji algoritma pada dataset biota laut.
 - Optimasi parameter K-Means untuk meningkatkan akurasi segmentasi.
-- Membandingkan hasil dengan metode lain seperti DBSCAN atau Mean-Shift.
-
+  
 ## 5. Deployment dan Dokumentasi
 
 - Menulis laporan penelitian dan dokumentasi proyek di GitHub.
