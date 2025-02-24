@@ -1,8 +1,8 @@
-# Amarine Finall Test 
-Nama : Christama Ezra Yudianto  
-Nim : 245150307111009  
+## Amarine Final Test
 
-## Milestone Riset Pendeteksian Objek Gambar Biota Laut
+Nama: Christama Ezra Yudianto  
+NIM: 245150307111009  
+Metode SDLC: Waterfall  
 
 ## 1. Perencanaan Awal
 
@@ -15,34 +15,43 @@ Nim : 245150307111009
 - Menentukan metode preprocessing gambar:
   - Konversi gambar ke RGB.
   - Normalisasi dan reshaping pixel data.
-- Menggunakan **Elbow Method** untuk menentukan jumlah optimal cluster **K**.
+- Menggunakan Elbow Method untuk menentukan jumlah optimal cluster K.
 - Merancang teknik clustering dengan K-Means untuk segmentasi warna.
 - Mengembangkan metode visualisasi hasil clustering dengan Pie Chart.
 
-## 3. Implementasi dan Pengujian
+## 3. Implementasi
 
 - Mengembangkan algoritma dalam Python menggunakan OpenCV dan K-Means Clustering.
 - Menggunakan Elbow Method untuk menentukan nilai K terbaik.
 - Menerapkan K-Means Clustering untuk segmentasi warna dalam gambar.
 - Membuat visualisasi hasil clustering dalam bentuk gambar dan Pie Chart.
+
+## 4. Pengujian
+
 - Menguji algoritma pada dataset biota laut.
 - Optimasi parameter K-Means untuk meningkatkan akurasi segmentasi.
+- Membandingkan hasil dengan metode lain seperti DBSCAN atau Mean-Shift.
 
-## Tujuan Proyek
+## 5. Deployment dan Dokumentasi
 
-Proyek ini bertujuan untuk mengembangkan metode segmentasi dan analisis warna biota laut menggunakan **K-Means Clustering**. Dengan menerapkan teknik pemrosesan gambar dan pembelajaran mesin, proyek ini bertujuan untuk:
+- Menulis laporan penelitian dan dokumentasi proyek di GitHub.
+- Menyusun presentasi hasil riset.
+- Menyediakan aplikasi berbasis web menggunakan Streamlit untuk mempermudah pengguna dalam melakukan analisis warna biota laut secara interaktif.
+
+## 6. Tujuan Proyek
+
+Proyek ini bertujuan untuk mengembangkan metode segmentasi dan analisis warna biota laut menggunakan K-Means Clustering. Dengan menerapkan teknik pemrosesan gambar dan pembelajaran mesin, proyek ini bertujuan untuk:
 - Mengkategorikan warna dominan dalam gambar biota laut secara otomatis.
 - Menganalisis distribusi warna untuk membantu identifikasi spesies biota laut.
-- Mengeksplorasi efektivitas **Elbow Method** dalam menentukan jumlah optimal cluster (**K**) untuk segmentasi gambar.
-- Menyediakan visualisasi hasil segmentasi menggunakan gambar yang telah diklasifikasikan dan **Pie Chart** warna dominan.
-- **Menyediakan aplikasi berbasis web menggunakan Streamlit untuk mempermudah pengguna dalam melakukan analisis warna biota laut secara interaktif.**
+- Mengeksplorasi efektivitas Elbow Method dalam menentukan jumlah optimal cluster (K) untuk segmentasi gambar.
+- Menyediakan visualisasi hasil segmentasi menggunakan gambar yang telah diklasifikasikan dan Pie Chart warna dominan.
 
-## Diagram Alir Proses
-<p align="center">
-  <img src="images/diagram.png" alt="diagram" width="170">
-</p>
+## 7. Diagram Alir Proses
 
-## Implementasi Kode dalam Python 
+![Diagram](images/diagram.png)
+
+## 8. Implementasi Kode dalam Python
+
 
 ### 1. Mengimpor Pustaka yang Dibutuhkan
 ```python
@@ -369,31 +378,17 @@ Processor: Intel64 Family 6 Model 165 Stepping 2, GenuineIntel
 RAM: 31.78 GB
 ```
 **Kesan & Pesan:** <br>
-``plain text
-**Suka:**
+```plain text
+Suka:
 - Proyek ini memberikan pengalaman menarik dalam eksplorasi pemrosesan citra dan analisis warna menggunakan K-Means clustering.
 - Visualisasi hasil segmentasi memberikan kepuasan tersendiri karena dapat melihat bagaimana gambar diubah menjadi representasi warna yang lebih sederhana.
 - Proses eksplorasi dan tuning parameter memberikan kesempatan untuk memahami lebih dalam cara kerja algoritma dan dampaknya terhadap hasil akhir.
-**Duka:**
+Duka:
 - Menghadapi tantangan dalam menangani gambar berukuran besar yang memerlukan optimasi memori dan waktu komputasi.
 - Menyesuaikan jumlah cluster agar menghasilkan segmentasi warna yang optimal tanpa kehilangan detail penting.
 - Waktu pengumpulan yang cepat membuat proses eksplorasi dan penyempurnaan model menjadi terbatas.
-
 ```
-
-
-## SDLC Model: Agile
-
-- **Sprint 1**: Studi literatur dan eksplorasi K-Means Clustering serta Elbow Method.
-- **Sprint 2**: Implementasi algoritma awal, pengujian dataset kecil, dan debugging.
-- **Sprint 3**: Optimasi algoritma, validasi dengan dataset lebih besar, dan analisis akurasi.
-- **Sprint 4**: Dokumentasi, evaluasi, publikasi proyek di GitHub, serta penyusunan laporan riset.
-- **Sprint 5**: Pengembangan aplikasi berbasis web dengan Streamlit dan deployment ke platform Streamlit Cloud.
 
 ## Tautan GitHub Proyek & Kesan Pesan
 Classsification : ![classification](notebook.ipynb) <br>
 Deploy Progaram : ![classification](streamlit.py)
-
-
-## Deployment Streamlit
-Aplikasi ini dapat digunakan secara langsung melalui platform **Streamlit Cloud**. [Masukkan tautan Streamlit di sini]
