@@ -44,9 +44,10 @@ Proyek ini bertujuan untuk mengembangkan metode segmentasi dan analisis warna bi
 - **Menyediakan aplikasi berbasis web menggunakan Streamlit untuk mempermudah pengguna dalam melakukan analisis warna biota laut secara interaktif.**
 
 ## Diagram Alir Proses
-<p align="center">
-  <img src="images/diagram.png" alt="diagram" width="170">
-</p>
+```plaintext
+![ElbowImage](images/elbow.png)
+```
+
 
 ## Implementasi Kode dalam Python 
 
@@ -90,7 +91,7 @@ print(f"{channels} = jumlah kanal warna (RGB)")
 print(f"Bentuk Akhir (2D) → {pixels.shape}")
 
 ```
-**Outptu:**
+**Output:**
 ```plaintext
 Bentuk Awal (3D) → (432, 650, 3)
 432 = tinggi gambar
@@ -109,34 +110,54 @@ Bentuk Akhir (2D) → (280800, 3)
  - 280800 berasal dari 432 × 650, yaitu jumlah total piksel dalam gambar.
  - Setiap piksel tetap memiliki 3 nilai warna (RGB) sehingga bentuk akhirnya menjadi (jumlah piksel, 3).
 
-### 3. Mengonversi Gambar ke Format Data untuk K-Means
+### 3. Menentukan Cluster Terbaik Dengan Elbow Method
 ```python
-def preprocess_image(image):
-    reshaped_image = image.reshape((-1, 3))  # Mengubah menjadi array 2D (N x 3)
-    return reshaped_image
-
-pixels = preprocess_image(image)
+# Hitung inertia untuk berbagai nilai K
+max_k = 10  # Batas atas jumlah cluster
+inertia = []
+k_values = range(1, max_k + 1)
+for k in k_values:
+    kmeans = KMeans(n_clusters=k, n_init=10, random_state=42)
+    kmeans.fit(pixels)
+    inertia.append(kmeans.inertia_)
+    print(f"K = {k}, Inertia = {kmeans.inertia_:.2f}")
 ```
+**Output:**
+```plaintext
+K = 1, Inertia = 866037899.82
+K = 2, Inertia = 427127533.45
+K = 3, Inertia = 283660527.88
+K = 4, Inertia = 201961651.82
+K = 5, Inertia = 140273876.40
+K = 6, Inertia = 116479413.24
+K = 7, Inertia = 93609222.28
+K = 8, Inertia = 81971134.45
+K = 9, Inertia = 73143205.75
+K = 10, Inertia = 66512469.12
+```
+
 **Penjelasan:**
-- Mengubah gambar dari 3D array ke 2D array dengan format **(jumlah pixel, 3)** agar bisa diproses oleh K-Means.
+- K = jumlah klaster dalam K-Means.
+- Inertia = total jarak kuadrat antara titik data dan pusat klaster.
+- Semakin kecil inertia, semakin baik pemisahan klaster.
+- Saat K meningkat, inertia menurun, tetapi dengan laju yang semakin lambat.
+- Gunakan metode "Elbow" untuk menentukan K optimal, yaitu titik di mana penurunan inertia mulai melambat.
+- Dari data, K = 4 atau K = 5 mungkin optimal.
 
-### 4. Menentukan Jumlah Optimal Cluster dengan Elbow Method
+### 4. Grafik Elbow Method untuk Menentukan K Optimal
 ```python
-def elbow_method(pixels):
-    distortions = []
-    K = range(1, 11)
-    for k in K:
-        kmeans = KMeans(n_clusters=k, random_state=42)
-        kmeans.fit(pixels)
-        distortions.append(kmeans.inertia_)
-    
-    plt.plot(K, distortions, 'bx-')
-    plt.xlabel('Jumlah Cluster K')
-    plt.ylabel('Distorsi')
-    plt.title('Metode Elbow')
-    plt.show()
+plt.figure(figsize=(8, 5))
+plt.plot(k_values, inertia, marker='o', linestyle='-')
+plt.xlabel('Jumlah Cluster (K)')
+plt.ylabel('Inertia (SSE)')
+plt.title('Elbow Method untuk Menentukan K Optimal')
+plt.xticks(k_values)
+plt.grid()
+plt.show()
+```
+**Output:**
+```plaintext
 
-elbow_method(pixels)
 ```
 **Penjelasan:**
 - Menggunakan **inertia** untuk menentukan nilai **K** optimal.
