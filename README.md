@@ -397,16 +397,3 @@ Duka:
 ```
 
 
-## SDLC Model: Agile
-
-- **Sprint 1**: Studi literatur dan eksplorasi K-Means Clustering serta Elbow Method.
-- **Sprint 2**: Implementasi algoritma awal, pengujian dataset kecil, dan debugging.
-- **Sprint 3**: Optimasi algoritma, validasi dengan dataset lebih besar, dan analisis akurasi.
-- **Sprint 4**: Dokumentasi, evaluasi, publikasi proyek di GitHub, serta penyusunan laporan riset.
-- **Sprint 5**: Pengembangan aplikasi berbasis web dengan Streamlit dan deployment ke platform Streamlit Cloud.
-
-## Tautan GitHub Proyek & Kesan Pesan
-Classsification : [classification](notebook.ipynb) <br>
-Deploy Progaram : [classification](streamlit.py) <br>
-Link Github : [full-link](https://github.com/ezra1702/Final-Amarine-Assessment-2025?tab=readme-ov-file)
-
