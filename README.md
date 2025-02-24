@@ -230,8 +230,8 @@ plt.show()
     - `axes[2].pie(color_distribution, labels=[f"Cluster {i+1}" for i in unique], colors=dominant_colors, autopct='%1.1f%%')` Membuat pie chart dengan warna dominan dan persentasenya.
 - **Membuat pie chart dengan warna dominan dan persentasenya.**  
     - `axes[2].set_title("Distribusi Warna Dominan")` Judul untuk pie chart.  
-    - **Menampilkan Semua Gambar Sekaligus** 
-        - `plt.show()` Menampilkan semua subplot dalam satu figure.  
+- **Menampilkan Semua Gambar Sekaligus** 
+    - `plt.show()` Menampilkan semua subplot dalam satu figure.  
 - **Kesimpulan**  
     - **Gambar asli** ditampilkan untuk referensi.  
     - **Gambar hasil clustering** memperlihatkan warna dominan.  
