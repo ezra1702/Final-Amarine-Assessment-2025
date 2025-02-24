@@ -375,7 +375,7 @@ Processor: Intel64 Family 6 Model 165 Stepping 2, GenuineIntel
 RAM: 31.78 GB
 ```
 **Kesan & Pesan:** <br>
-``plain text
+```plain text
 **Suka:**
 - Proyek ini memberikan pengalaman menarik dalam eksplorasi pemrosesan citra dan analisis warna menggunakan K-Means clustering.
 - Visualisasi hasil segmentasi memberikan kepuasan tersendiri karena dapat melihat bagaimana gambar diubah menjadi representasi warna yang lebih sederhana.
@@ -400,6 +400,3 @@ RAM: 31.78 GB
 Classsification : ![classification](notebook.ipynb) <br>
 Deploy Progaram : ![classification](streamlit.py)
 
-
-## Deployment Streamlit
-Aplikasi ini dapat digunakan secara langsung melalui platform **Streamlit Cloud**. [Masukkan tautan Streamlit di sini]
