@@ -216,24 +216,24 @@ plt.show()
 ```
 
 **Penjelasan:**
-    - **Membuat Subplot untuk Visualisasi**  
+    **Membuat Subplot untuk Visualisasi**  
         - `fig, axes = plt.subplots(1, 3, figsize=(20, 4))`  Membuat 3 kolom subplot dalam satu baris dengan ukuran 20x4.  
-    - **Menampilkan Gambar Asli**  
+     **Menampilkan Gambar Asli**  
         - `axes[0].imshow(image)` Menampilkan gambar asli.  
         - `axes[0].set_title("Gambar Asli")` Memberi judul "Gambar Asli".  
         -  `axes[0].axis("off")` Menyembunyikan sumbu gambar.  
-    - **Menampilkan Gambar Hasil Clustering**  
+     **Menampilkan Gambar Hasil Clustering**  
         - `axes[1].imshow(recolored_pixels)` Menampilkan gambar hasil K-Means clustering.  
         - `axes[1].set_title(f"Gambar dengan {k} Cluster Warna")` Judul sesuai jumlah klaster.  
         - `axes[1].axis("off")` Menyembunyikan sumbu gambar.  
-    - **Menampilkan Diagram Pie Distribusi Warna**  
+    **Menampilkan Diagram Pie Distribusi Warna**  
         - `axes[2].pie(color_distribution, labels=[f"Cluster {i+1}" for i in unique], colors=dominant_colors, autopct='%1.1f%%')`  
-    -  **Membuat pie chart dengan warna dominan dan persentasenya.**  
+     **Membuat pie chart dengan warna dominan dan persentasenya.**  
         - `axes[2].set_title("Distribusi Warna Dominan")` Judul untuk pie chart.  
-    - **Menampilkan Semua Gambar Sekaligus** 
+    **Menampilkan Semua Gambar Sekaligus** 
         - `plt.show()` Menampilkan semua subplot dalam satu figure.  
-    -  **Kesimpulan**  
-        - **Gambar asli** ditampilkan untuk referensi.  
+    **Kesimpulan**  
+         - **Gambar asli** ditampilkan untuk referensi.  
         - **Gambar hasil clustering** memperlihatkan warna dominan.  
         - **Pie chart** menunjukkan proporsi warna yang dihasilkan.
 
