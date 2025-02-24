@@ -296,7 +296,7 @@ if __name__ == "__main__":
     run_streamlit()
 ```
 **Ouput:** <br>
-[deploy](images/deploy.png)
+![deploy](images/deploy.png)
 
 
 
