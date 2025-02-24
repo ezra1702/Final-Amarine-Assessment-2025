@@ -181,14 +181,14 @@ dominant_colors = np.round(kmeans.cluster_centers_).astype(int) / 255
 **Penjelasan:**
 - Melakukan K-Means Clustering
     - Membagi gambar menjadi 4 klaster warna ```(n_clusters=4)```.
-    - Menjalankan algoritma 10 kali untuk hasil terbaik (n_init=10).
-    - Memberi label klaster pada setiap piksel gambar (fit_predict(pixels)).
+    - Menjalankan algoritma 10 kali untuk hasil terbaik ```(n_init=10)```.
+    - Memberi label klaster pada setiap piksel gambar ```(fit_predict(pixels))```.
 - Membuat Gambar Baru Berdasarkan Warna Klaster
     - Mengganti setiap piksel dengan warna pusat klaster yang sesuai.
-    - Mengembalikan gambar ke bentuk aslinya (reshape(image.shape)).
+    - Mengembalikan gambar ke bentuk aslinya ```(reshape(image.shape))```.
     - Mengubah nilai warna ke integer agar sesuai dengan format gambar.
 - Menghitung Persentase Warna di Setiap Klaster
-    - Menghitung jumlah piksel dalam setiap klaster (np.unique(labels, return_counts=True)).
+    - Menghitung jumlah piksel dalam setiap klaster ```(np.unique(labels, return_counts=True))```.
     - Mengubah jumlah piksel menjadi persentase warna dalam gambar.
 -  Mengonversi Warna Dominan ke Format Matplotlib
     - Membulatkan nilai RGB pusat klaster ke bilangan bulat.
