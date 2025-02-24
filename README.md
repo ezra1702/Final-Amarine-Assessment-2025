@@ -163,22 +163,36 @@ plt.show()
 
 ### 5. Menggunakan K-Means untuk Segmentasi Gambar
 ```python
-def apply_kmeans(pixels, k):
-    kmeans = KMeans(n_clusters=k, random_state=42)
-    kmeans.fit(pixels)
-    segmented_image = kmeans.cluster_centers_[kmeans.labels_]
-    segmented_image = segmented_image.reshape(image.shape)
-    return segmented_image
+# Melakukan K-Means Clustering
+kmeans = KMeans(n_clusters=4, n_init=10, random_state=42)
+labels = kmeans.fit_predict(pixels)
 
-segmented_image = apply_kmeans(pixels, k=4)
-plt.imshow(segmented_image.astype(int))
-plt.axis("off")
-plt.show()
+# Buat gambar baru berdasarkan warna cluster
+recolored_pixels = kmeans.cluster_centers_[labels].reshape(image.shape).astype(int)
+
+# Menghitung Persentase Warna di Setiap Cluster
+unique, counts = np.unique(labels, return_counts=True)
+color_distribution = counts / counts.sum()
+
+# Mengonversi Warna Dominan ke Format Matplotlib
+dominant_colors = np.round(kmeans.cluster_centers_).astype(int) / 255
+
 ```
 **Penjelasan:**
-- Menerapkan **K-Means Clustering** pada data pixel gambar.
-- Menggunakan jumlah cluster **K = 4**.
-- Mengonversi kembali hasil segmentasi ke bentuk gambar.
+- Melakukan K-Means Clustering
+    - Membagi gambar menjadi 4 klaster warna ```(n_clusters=4)```.
+    - Menjalankan algoritma 10 kali untuk hasil terbaik (n_init=10).
+    - Memberi label klaster pada setiap piksel gambar (fit_predict(pixels)).
+- Membuat Gambar Baru Berdasarkan Warna Klaster
+    - Mengganti setiap piksel dengan warna pusat klaster yang sesuai.
+    - Mengembalikan gambar ke bentuk aslinya (reshape(image.shape)).
+    - Mengubah nilai warna ke integer agar sesuai dengan format gambar.
+- Menghitung Persentase Warna di Setiap Klaster
+    - Menghitung jumlah piksel dalam setiap klaster (np.unique(labels, return_counts=True)).
+    - Mengubah jumlah piksel menjadi persentase warna dalam gambar.
+-  Mengonversi Warna Dominan ke Format Matplotlib
+    - Membulatkan nilai RGB pusat klaster ke bilangan bulat.
+    - Mengonversi ke skala 0–1 agar kompatibel dengan Matplotlib.
 
 ### 6. Visualisasi Warna Dominan dalam Bentuk Pie Chart
 ```python
