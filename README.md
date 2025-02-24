@@ -154,7 +154,7 @@ plt.xticks(k_values)
 plt.grid()
 plt.show()
 ```
-**Output:**
+**Output:** <br>
 ![ElbowImage](images/elbow.png)
 
 
