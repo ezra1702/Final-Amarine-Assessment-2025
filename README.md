@@ -44,51 +44,8 @@ Proyek ini bertujuan untuk mengembangkan metode segmentasi dan analisis warna bi
 - **Menyediakan aplikasi berbasis web menggunakan Streamlit untuk mempermudah pengguna dalam melakukan analisis warna biota laut secara interaktif.**
 
 ## Diagram Alir Proses
+  <img src="images/logo.png" alt="Deskripsi" width="300">
 
-```plaintext
-+---------------------------------+
-|             Mulai              |
-+---------------------------------+
-              |
-              v
-+---------------------------------+
-|   Ambil gambar biota laut      |
-+---------------------------------+
-              |
-              v
-+---------------------------------+
-|   Preprocessing gambar:        |
-|   - Konversi ke RGB            |
-|   - Normalisasi pixel          |
-|   - Reshape data               |
-+---------------------------------+
-              |
-              v
-+---------------------------------+
-|   Analisis jumlah cluster:     |
-|   - Jalankan Elbow Method      |
-|   - Tentukan nilai K optimal   |
-+---------------------------------+
-              |
-              v
-+---------------------------------+
-|   Segmentasi gambar:           |
-|   - Jalankan K-Means           |
-|   - Rekonstruksi gambar        |
-+---------------------------------+
-              |
-              v
-+---------------------------------+
-|   Visualisasi hasil:           |
-|   - Tampilkan gambar hasil     |
-|   - Buat Pie Chart warna       |
-+---------------------------------+
-              |
-              v
-+---------------------------------+
-|            Selesai             |
-+---------------------------------+
-```
 
 ## Rekayasa Algoritma (Pseudocode)
 
