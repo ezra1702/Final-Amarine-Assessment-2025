@@ -44,7 +44,9 @@ Proyek ini bertujuan untuk mengembangkan metode segmentasi dan analisis warna bi
 - **Menyediakan aplikasi berbasis web menggunakan Streamlit untuk mempermudah pengguna dalam melakukan analisis warna biota laut secara interaktif.**
 
 ## Diagram Alir Proses
-  <img src="images/logo.png" alt="Deskripsi" width="300">
+![diagram](https://raw.githubusercontent.com/username/repository-name/main/images/diagram.png)
+
+
 
 
 ## Rekayasa Algoritma (Pseudocode)
