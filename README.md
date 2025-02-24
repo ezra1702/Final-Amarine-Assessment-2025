@@ -194,22 +194,48 @@ dominant_colors = np.round(kmeans.cluster_centers_).astype(int) / 255
     - Membulatkan nilai RGB pusat klaster ke bilangan bulat.
     - Mengonversi ke skala 0–1 agar kompatibel dengan Matplotlib.
 
-### 6. Visualisasi Warna Dominan dalam Bentuk Pie Chart
+### 6. Visualisasi Hasil Segmentasi Warna dengan K-Means
 ```python
-def plot_color_pie(pixels, k):
-    kmeans = KMeans(n_clusters=k, random_state=42)
-    kmeans.fit(pixels)
-    colors = kmeans.cluster_centers_ / 255
-    labels, counts = np.unique(kmeans.labels_, return_counts=True)
-    plt.pie(counts, labels=labels, colors=colors, autopct="%1.1f%%")
-    plt.title("Distribusi Warna Dominan")
-    plt.show()
+# Gambar Asli
+fig, axes = plt.subplots(1, 3, figsize=(20, 4))
 
-plot_color_pie(pixels, k=4)
+axes[0].imshow(image)
+axes[0].set_title("Gambar Asli")
+axes[0].axis("off")
+
+# Gambar Hasil Clustering
+axes[1].imshow(recolored_pixels)
+axes[1].set_title(f"Gambar dengan {k} Cluster Warna")
+axes[1].axis("off")
+
+# Pie Chart Warna Dominan
+axes[2].pie(color_distribution, labels=[f"Cluster {i+1}" for i in unique], colors=dominant_colors, autopct='%1.1f%%')
+axes[2].set_title("Distribusi Warna Dominan")
+
+plt.show()
 ```
+
 **Penjelasan:**
-- Menghitung warna dominan dari hasil clustering.
-- Memplot distribusi warna menggunakan **Pie Chart**.
+    - **Membuat Subplot untuk Visualisasi**  
+        - `fig, axes = plt.subplots(1, 3, figsize=(20, 4))`  Membuat 3 kolom subplot dalam satu baris dengan ukuran 20x4.  
+    - **Menampilkan Gambar Asli**  
+        - `axes[0].imshow(image)` Menampilkan gambar asli.  
+        - `axes[0].set_title("Gambar Asli")` Memberi judul "Gambar Asli".  
+        -  `axes[0].axis("off")` Menyembunyikan sumbu gambar.  
+    - **Menampilkan Gambar Hasil Clustering**  
+        - `axes[1].imshow(recolored_pixels)` Menampilkan gambar hasil K-Means clustering.  
+        - `axes[1].set_title(f"Gambar dengan {k} Cluster Warna")` Judul sesuai jumlah klaster.  
+        - `axes[1].axis("off")` Menyembunyikan sumbu gambar.  
+    - **Menampilkan Diagram Pie Distribusi Warna**  
+        - `axes[2].pie(color_distribution, labels=[f"Cluster {i+1}" for i in unique], colors=dominant_colors, autopct='%1.1f%%')`  
+    -  **Membuat pie chart dengan warna dominan dan persentasenya.**  
+        - `axes[2].set_title("Distribusi Warna Dominan")` Judul untuk pie chart.  
+    - **Menampilkan Semua Gambar Sekaligus** 
+        - `plt.show()` Menampilkan semua subplot dalam satu figure.  
+    -  **Kesimpulan**  
+        - **Gambar asli** ditampilkan untuk referensi.  
+        - **Gambar hasil clustering** memperlihatkan warna dominan.  
+        - **Pie chart** menunjukkan proporsi warna yang dihasilkan.
 
 ## SDLC Model: Agile
 
