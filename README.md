@@ -214,6 +214,8 @@ axes[2].set_title("Distribusi Warna Dominan")
 
 plt.show()
 ```
+**Ouput:**
+![k-means](images/k-means.png)
 
 **Penjelasan:**
 -  **Membuat Subplot untuk Visualisasi**  
