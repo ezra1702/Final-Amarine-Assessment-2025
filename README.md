@@ -44,9 +44,9 @@ Proyek ini bertujuan untuk mengembangkan metode segmentasi dan analisis warna bi
 - **Menyediakan aplikasi berbasis web menggunakan Streamlit untuk mempermudah pengguna dalam melakukan analisis warna biota laut secara interaktif.**
 
 ## Diagram Alir Proses
-![ElbowImage](images/elbow.png)
-
-
+<p align="center">
+  <img src="images/diagram.png" alt="diagram" width="170">
+</p>
 
 ## Implementasi Kode dalam Python 
 
@@ -155,9 +155,9 @@ plt.grid()
 plt.show()
 ```
 **Output:**
-```plaintext
+![ElbowImage](images/elbow.png)
 
-```
+
 **Penjelasan:**
 - Menggunakan **inertia** untuk menentukan nilai **K** optimal.
 - Memplot nilai **K** terhadap nilai **distorsi** untuk menemukan **titik siku**.
