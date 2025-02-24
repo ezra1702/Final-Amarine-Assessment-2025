@@ -1,6 +1,6 @@
 # Amarine Finall Test 
-Nama : Christama Ezra Yudianto <br>
-Nim : 245150307111009
+Nama : Christama Ezra Yudianto  
+Nim : 245150307111009  
 
 ## Milestone Riset Pendeteksian Objek Gambar Biota Laut
 
@@ -50,7 +50,8 @@ Proyek ini bertujuan untuk mengembangkan metode segmentasi dan analisis warna bi
 
 ## Implementasi Kode dalam Python 
 
-```
+### 1. Mengimpor Pustaka yang Dibutuhkan
+```python
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
@@ -58,39 +59,105 @@ import time
 import platform
 import psutil
 from sklearn.cluster import KMeans
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
 from sklearn.datasets import make_blobs
 ```
-### Penjelasan Kode
-Penjelasan Kode
-Kode ini merupakan implementasi K-Means Clustering untuk segmentasi warna dalam gambar. Berikut adalah penjelasan dari setiap pustaka yang diimpor:
 
-cv2 (OpenCV)
+**Penjelasan:**
+- `cv2`: Untuk membaca dan memproses gambar.
+- `numpy`: Untuk manipulasi array numerik.
+- `matplotlib.pyplot`: Untuk visualisasi data.
+- `time`: Untuk mengukur performa algoritma.
+- `platform`: Untuk mendapatkan informasi sistem operasi.
+- `psutil`: Untuk memonitor penggunaan CPU dan memori.
+- `sklearn.cluster.KMeans`: Untuk algoritma K-Means Clustering.
+- `sklearn.datasets.make_blobs`: Untuk membuat dataset dummy.
 
-Digunakan untuk membaca dan memproses gambar, termasuk konversi warna dan manipulasi pixel.
-numpy
+### 2. Membaca dan Menampilkan Gambar
+```python
+def load_image(image_path):
+    image = cv2.imread(image_path)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Konversi BGR ke RGB
+    plt.imshow(image)
+    plt.axis("off")
+    plt.show()
+    return image
 
-Digunakan untuk manipulasi array dan operasi numerik, seperti mengubah gambar menjadi array pixel.
-matplotlib.pyplot
+# Contoh pemanggilan fungsi
+image = load_image("images/biota.jpg")
+```
+**Penjelasan:**
+- Membaca gambar menggunakan `cv2.imread()`.
+- Mengubah format warna dari BGR ke RGB.
+- Menampilkan gambar menggunakan `plt.imshow()`.
 
-Digunakan untuk menampilkan hasil visualisasi seperti gambar hasil segmentasi dan grafik Elbow Method.
-time
+### 3. Mengonversi Gambar ke Format Data untuk K-Means
+```python
+def preprocess_image(image):
+    reshaped_image = image.reshape((-1, 3))  # Mengubah menjadi array 2D (N x 3)
+    return reshaped_image
 
-Digunakan untuk mengukur waktu eksekusi program, yang berguna untuk optimasi performa algoritma.
-platform
+pixels = preprocess_image(image)
+```
+**Penjelasan:**
+- Mengubah gambar dari 3D array ke 2D array dengan format **(jumlah pixel, 3)** agar bisa diproses oleh K-Means.
 
-Digunakan untuk mendapatkan informasi tentang sistem operasi yang sedang digunakan.
-psutil
+### 4. Menentukan Jumlah Optimal Cluster dengan Elbow Method
+```python
+def elbow_method(pixels):
+    distortions = []
+    K = range(1, 11)
+    for k in K:
+        kmeans = KMeans(n_clusters=k, random_state=42)
+        kmeans.fit(pixels)
+        distortions.append(kmeans.inertia_)
+    
+    plt.plot(K, distortions, 'bx-')
+    plt.xlabel('Jumlah Cluster K')
+    plt.ylabel('Distorsi')
+    plt.title('Metode Elbow')
+    plt.show()
 
-Digunakan untuk memonitor penggunaan sumber daya sistem seperti CPU dan memori saat program berjalan.
-sklearn.cluster.KMeans
+elbow_method(pixels)
+```
+**Penjelasan:**
+- Menggunakan **inertia** untuk menentukan nilai **K** optimal.
+- Memplot nilai **K** terhadap nilai **distorsi** untuk menemukan **titik siku**.
 
-Digunakan untuk mengimplementasikan algoritma K-Means Clustering dalam segmentasi warna.
-sklearn.datasets.make_blobs
+### 5. Menggunakan K-Means untuk Segmentasi Gambar
+```python
+def apply_kmeans(pixels, k):
+    kmeans = KMeans(n_clusters=k, random_state=42)
+    kmeans.fit(pixels)
+    segmented_image = kmeans.cluster_centers_[kmeans.labels_]
+    segmented_image = segmented_image.reshape(image.shape)
+    return segmented_image
 
-Digunakan untuk membuat dataset contoh dengan titik-titik data yang dikelompokkan ke dalam beberapa cluster (berguna untuk pengujian K-Means).
+segmented_image = apply_kmeans(pixels, k=4)
+plt.imshow(segmented_image.astype(int))
+plt.axis("off")
+plt.show()
+```
+**Penjelasan:**
+- Menerapkan **K-Means Clustering** pada data pixel gambar.
+- Menggunakan jumlah cluster **K = 4**.
+- Mengonversi kembali hasil segmentasi ke bentuk gambar.
+
+### 6. Visualisasi Warna Dominan dalam Bentuk Pie Chart
+```python
+def plot_color_pie(pixels, k):
+    kmeans = KMeans(n_clusters=k, random_state=42)
+    kmeans.fit(pixels)
+    colors = kmeans.cluster_centers_ / 255
+    labels, counts = np.unique(kmeans.labels_, return_counts=True)
+    plt.pie(counts, labels=labels, colors=colors, autopct="%1.1f%%")
+    plt.title("Distribusi Warna Dominan")
+    plt.show()
+
+plot_color_pie(pixels, k=4)
+```
+**Penjelasan:**
+- Menghitung warna dominan dari hasil clustering.
+- Memplot distribusi warna menggunakan **Pie Chart**.
 
 ## SDLC Model: Agile
 
@@ -101,10 +168,7 @@ Digunakan untuk membuat dataset contoh dengan titik-titik data yang dikelompokka
 - **Sprint 5**: Pengembangan aplikasi berbasis web dengan Streamlit dan deployment ke platform Streamlit Cloud.
 
 ## Tautan GitHub Proyek
-
 [Masukkan tautan GitHub proyek di sini]
 
 ## Deployment Streamlit
-
-Aplikasi ini dapat digunakan secara langsung melalui platform **Streamlit Cloud** untuk mempermudah analisis warna biota laut. [Masukkan tautan Streamlit di sini]
-
+Aplikasi ini dapat digunakan secara langsung melalui platform **Streamlit Cloud**. [Masukkan tautan Streamlit di sini]
