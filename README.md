@@ -72,18 +72,31 @@ from sklearn.datasets import make_blobs
 - `sklearn.cluster.KMeans`: Untuk algoritma K-Means Clustering.
 - `sklearn.datasets.make_blobs`: Untuk membuat dataset dummy.
 
-### 2. Membaca dan Menampilkan Gambar
+### 2. Konversi Gambar ke Format RGB dan Ekstraksi Piksel
 ```python
-def load_image(image_path):
-    image = cv2.imread(image_path)
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Konversi BGR ke RGB
-    plt.imshow(image)
-    plt.axis("off")
-    plt.show()
-    return image
+# Membaca gambar dan mengubah ke format RGB
+image_path = "images/aethaloperca_rogaa_11.jpg"
+image = cv2.imread(image_path)
+image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+# Ubah gambar menjadi kumpulan piksel (flatten)
+pixels = image.reshape(-1, 3)
+height, width, channels = image.shape
 
-# Contoh pemanggilan fungsi
-image = load_image("images/biota.jpg")
+print(f"Bentuk Awal (3D) → ({height}, {width}, {channels})")
+
+print(f"{height} = tinggi gambar")
+print(f"{width} = lebar gambar")
+print(f"{channels} = jumlah kanal warna (RGB)")
+print(f"Bentuk Akhir (2D) → {pixels.shape}")
+
+```
+**Penjelasan:**
+```plaintext
+Bentuk Awal (3D) → (432, 650, 3)
+432 = tinggi gambar
+650 = lebar gambar
+3 = jumlah kanal warna (RGB)
+Bentuk Akhir (2D) → (280800, 3)
 ```
 **Penjelasan:**
 - Membaca gambar menggunakan `cv2.imread()`.
