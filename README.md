@@ -389,5 +389,5 @@ Duka:
 ```
 
 ## Tautan GitHub Proyek & Kesan Pesan
-Classsification : ![classification](notebook.ipynb) <br>
+Clustering : ![classification](notebook.ipynb) <br>
 Deploy Progaram : ![classification](streamlit.py)
